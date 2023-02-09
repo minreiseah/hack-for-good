@@ -1,3 +1,6 @@
-language = input("pick lanaguage\n")
+language = input("Pick language: ")
+
+name = input("Name: ")
+
 
 
