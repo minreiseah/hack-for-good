@@ -1,0 +1,80 @@
+import {
+    Model,
+    Table,
+    Column,
+    DataType,
+    PrimaryKey,
+    AllowNull,
+    Default,
+    CreatedAt,
+    UpdatedAt
+} from 'sequelize-typescript';
+
+@Table({
+    tableName: 'user_info'
+})
+export class UserInfo extends Model<UserInfo> {
+    @PrimaryKey
+    @Default(DataType.UUIDV1)
+    @Column(DataType.UUID)
+    user_id!: string;
+
+    @AllowNull(false)
+    @Column(DataType.STRING)
+    first_name!: string;
+
+    @AllowNull(false)
+    @Column(DataType.STRING)
+    last_name!: string;
+
+    @AllowNull(false)
+    @Column(DataType.STRING)
+    email!: string;
+
+    @AllowNull(false)
+    @Column(DataType.STRING)
+    phone!: string;
+
+    @AllowNull(false)
+    @Column(DataType.UUID)
+    gender_id!: string;
+
+    @AllowNull(false)
+    @Column(DataType.DATE)
+    date_of_birth!: Date;
+
+    @AllowNull(false)
+    @Column(DataType.UUID)
+    country_id!: string;
+
+    @AllowNull(false)
+    @Column(DataType.UUID)
+    city_id!: string;
+
+    @AllowNull(false)
+    @Column(DataType.STRING)
+    address!: string;
+
+    @AllowNull(false)
+    @Column(DataType.STRING)
+    zip_code!: string;
+
+    @AllowNull(false)
+    @Column(DataType.STRING)
+    profile_picture!: string;
+
+    @AllowNull(false)
+    @Column(DataType.STRING)
+    user_role!: string;
+
+    @Column(DataType.ENUM('active', 'inactive'))
+    status!: string;
+
+    @CreatedAt
+    @Column
+    readonly created_at!: Date;
+
+    @UpdatedAt
+    @Column
+    readonly updated_at!: Date;
+}
